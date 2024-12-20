@@ -11,8 +11,9 @@
   <h3>Resolved values</h3>
   <br/>
   <br/>
-  <b>Resolved from @Value:</b> <i>[[${resolvedFromValue}]]</i><br/>
-  <b>Resolved from @ConfigurationProperties:</b> <i>[[${resolvedFromConfigFile}]]</i>
+  <b>from @Value "bar":</b> <i>[[${resolvedFromValueBar}]]</i><br/>
+  <b>from @Value "baz" (it should be a fallback):</b> <i>[[${resolvedFromValueBaz}]]</i><br/>
+  <b>from @ConfigurationProperties (config file):</b> <i>[[${resolvedFromConfigFile}]]</i>
 </div>
 
 </body>

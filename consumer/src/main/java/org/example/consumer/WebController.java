@@ -10,8 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class WebController {
   private static final String INDEX_PAGE = "index.html";
 
-  @Value("${foo://from-value:from-value}")
-  private String valueField;
+  @Value("${foo://bar:fallback-value}")
+  private String barValueField;
+
+  @Value("${foo://baz:fallback-value}")
+  private String bazValueField;
 
   private ConsumerConfiguration consumerConfiguration;
 
@@ -22,7 +25,8 @@ public class WebController {
   @GetMapping("/")
   public ModelAndView renderIndex(ModelMap map) {
     String valueFromConfigurationFile = consumerConfiguration.getValue();
-    map.put("resolvedFromValue", valueField);
+    map.put("resolvedFromValueBar", barValueField);
+    map.put("resolvedFromValueBaz", bazValueField);
     map.put("resolvedFromConfigFile", valueFromConfigurationFile);
     return new ModelAndView(INDEX_PAGE, map);
   }

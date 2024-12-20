@@ -15,6 +15,9 @@ import org.springframework.core.env.EnumerablePropertySource;
 
     @Override
     public Object getProperty(String name) {
+      if (!name.startsWith("foo://")) {
+        return null;
+      }
       return getSource().getFooProperty(name);
     }
 

@@ -1,3 +1,6 @@
 # ConfigData Location Resolvers
 org.springframework.boot.context.config.ConfigDataLocationResolver=\
 org.example.MyConfigDataLocationResolver
+# ConfigData Loaders
+org.springframework.boot.context.config.ConfigDataLoader=\
+org.example.MyConfigDataLoader
