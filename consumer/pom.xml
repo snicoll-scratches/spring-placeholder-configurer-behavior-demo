@@ -55,6 +55,11 @@
       <artifactId>commons-lang3</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>org.example</groupId>
+      <artifactId>autoconfiguration</artifactId>
+    </dependency>
+
     <!-- Test-related dependencies. -->
     <dependency>
       <groupId>junit</groupId>
