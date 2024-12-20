@@ -31,7 +31,7 @@ public class MyConfigDataResource extends ConfigDataResource {
 
   @Override
   public String toString() {
-    return "SecretManagerConfigDataResource{"
+    return "MyConfigDataResource{"
         + "location=" + location
         + '}';
   }

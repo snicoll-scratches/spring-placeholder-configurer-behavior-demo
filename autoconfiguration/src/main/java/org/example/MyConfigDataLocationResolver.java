@@ -25,13 +25,13 @@ public class MyConfigDataLocationResolver implements
   public List<MyConfigDataResource> resolve(ConfigDataLocationResolverContext context,
       ConfigDataLocation location)
       throws ConfigDataLocationNotFoundException, ConfigDataResourceNotFoundException {
-    registerSecretManagerBeans(context);
+    registerMyBeans(context);
 
     return Collections.singletonList(
         new MyConfigDataResource(location));
   }
 
-  private static void registerSecretManagerBeans(ConfigDataLocationResolverContext context) {
+  private static void registerMyBeans(ConfigDataLocationResolverContext context) {
     // Register the placeholder configurer
     registerBean(
         context, MyPlaceholderConfigurer.class, new MyPlaceholderConfigurer());
@@ -64,7 +64,7 @@ public class MyConfigDataLocationResolver implements
     context.getBootstrapContext().registerIfAbsent(type, supplier);
     context.getBootstrapContext().addCloseListener(event -> {
       T instance = event.getBootstrapContext().get(type);
-      String beanName = "gcp-secretmanager-config-data-" + type.getSimpleName();
+      String beanName = "my-config-data-" + type.getSimpleName();
       ConfigurableListableBeanFactory factory = event.getApplicationContext().getBeanFactory();
       if (!factory.containsSingleton(beanName)) {
         factory.registerSingleton(beanName, instance);
