@@ -10,10 +10,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class WebController {
   private static final String INDEX_PAGE = "index.html";
 
-  @Value("${foo://bar:fallback-value}")
+  @Value("${foo://bar}")
   private String barValueField;
 
-  @Value("${foo://baz:fallback-value}")
+  @Value("${foo://baz}")
   private String bazValueField;
 
   private ConsumerConfiguration consumerConfiguration;

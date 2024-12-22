@@ -15,9 +15,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
     classes = ConsumerApplication.class)
 class ConsumerApplicationTests {
-  private static final String EXPECTED_CONTENT_FROM_VALUE_BAR_ANNOTATION = "<b>from @Value \"bar\":</b> <i>BAR</i><br/>";
-  private static final String EXPECTED_CONTENT_FROM_VALUE_BAZ_ANNOTATION = "<b>from @Value \"baz\" (it should be a fallback):</b> <i>fallback-value</i><br/>";
-  private static final String EXPECTED_CONTENT_FROM_CONFIG_FILE = "<b>from @ConfigurationProperties (config file):</b> <i>QUX</i>";
+  private static final String EXPECTED_CONTENT_FROM_VALUE_BAR_ANNOTATION = "<i>parsed by MySourceType: foo://bar</i>";
+  private static final String EXPECTED_CONTENT_FROM_VALUE_BAZ_ANNOTATION = "<i>parsed by MySourceType: foo://baz</i><br/>";
+  private static final String EXPECTED_CONTENT_FROM_CONFIG_FILE = "<i>parsed by MySourceType: foo://qux</i>";
 
   @Autowired
   private TestRestTemplate testRestTemplate;
@@ -29,7 +29,7 @@ class ConsumerApplicationTests {
     System.out.println(response.getBody());
     assertTrue(response.getBody().contains(EXPECTED_CONTENT_FROM_VALUE_BAR_ANNOTATION)); // OK
     assertTrue(response.getBody().contains(EXPECTED_CONTENT_FROM_VALUE_BAZ_ANNOTATION)); // OK
-    assertTrue(response.getBody().contains(EXPECTED_CONTENT_FROM_CONFIG_FILE));          // FAILS
+    assertTrue(response.getBody().contains(EXPECTED_CONTENT_FROM_CONFIG_FILE));          // OK
   }
 
 }

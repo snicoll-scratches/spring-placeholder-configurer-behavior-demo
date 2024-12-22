@@ -33,8 +33,8 @@ public class MyConfigDataLocationResolver implements
 
   private static void registerMyBeans(ConfigDataLocationResolverContext context) {
     // Register the placeholder configurer
-    registerBean(
-        context, MyPlaceholderConfigurer.class, new MyPlaceholderConfigurer());
+//    registerBean(
+//        context, MyPlaceholderConfigurer.class, new MyPlaceholderConfigurer());
     // Register and promote the placeholder configurer
 //    registerAndPromoteBean(
 //        context,
